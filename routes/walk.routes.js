@@ -13,6 +13,7 @@ router.post('/', async (req, res, next) => {
 });
 
 router.get('/', async (req, res) => {
+    //todo: get only current user walks
     try {
         const walks = await Walk.find();
         res.json(walks);

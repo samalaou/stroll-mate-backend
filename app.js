@@ -25,6 +25,7 @@ app.use("/auth", authRoutes);
 
 app.use('/api/users', isAuthenticated, require('./routes/user.routes'));
 app.use('/api/walks', isAuthenticated, require('./routes/walk.routes'));
+app.use('/api/messages', isAuthenticated, require('./routes/message.routes'));
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
