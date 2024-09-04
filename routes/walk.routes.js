@@ -12,7 +12,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     //todo: get only current user walks
     try {
         const walks = await Walk.find();
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:walkId', async (req, res) => {
+router.get('/:walkId', async (req, res, next) => {
     const { walkId } = req.params;
     try {
         const walk = await Walk.findById(walkId);
@@ -32,7 +32,7 @@ router.get('/:walkId', async (req, res) => {
     }
 });
 
-router.put('/:walkId', async (req, res) => {
+router.put('/:walkId', async (req, res, next) => {
     const { walkId } = req.params;
     try {
         const updatedWalk = await Walk.findByIdAndUpdate(walkId, req.body, { new: true });
@@ -42,7 +42,7 @@ router.put('/:walkId', async (req, res) => {
     }
 });
 
-router.delete('/:walkId', async (req, res) => {
+router.delete('/:walkId', async (req, res, next) => {
     const { walkId } = req.params;
     try {
         await Walk.findByIdAndDelete(walkId);
