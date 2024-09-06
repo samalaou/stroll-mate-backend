@@ -24,7 +24,7 @@ const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
 app.use('/api/users', isAuthenticated, require('./routes/user.routes'));
-app.use('/api/walks', isAuthenticated, require('./routes/walk.routes'));
+app.use('/api/walks', require('./routes/walk.routes'));
 app.use('/api/messages', isAuthenticated, require('./routes/message.routes'));
 
 
