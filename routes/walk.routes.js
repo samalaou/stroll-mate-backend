@@ -7,6 +7,7 @@ const { isAuthenticated } = require("../middleware/jwt.middleware.js");
 router.post('/', isAuthenticated, async (req, res, next) => {
     const authenticatedUserId = req.payload._id;
     try {
+        console.log(req.body)
         const walkData = { ...req.body, user: authenticatedUserId };
         const savedWalk = await Walk.create(walkData);
         res.status(201).json(savedWalk);
