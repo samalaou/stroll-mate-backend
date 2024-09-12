@@ -51,10 +51,11 @@ router.get('/', async (req, res, next) => {
 // should return the availability too
 router.get('/chats', async (req, res, next) => {
     try {
-        const users = await User.find().select('_id name');
+        const users = await User.find().select('_id name isAvailable');
         const formattedUsers = users.map(user => ({
             _id: user._id,
-            username: user.name
+            username: user.name,
+            isAvailable: user.isAvailable
         }));
         res.json(formattedUsers);
     } catch (error) {
